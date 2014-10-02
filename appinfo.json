@@ -1,0 +1,23 @@
+{
+  "uuid": "c3396d09-23c8-437d-ac71-c38eb9e1333e",
+  "shortName": "png_demo",
+  "longName": "png_demo",
+  "companyName": "nicetux",
+  "versionCode": 1,
+  "versionLabel": "1.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": [
+    {
+      "type": "raw",
+      "name": "IMAGE_ROBOT",
+      "file": "robot.png"
+    }
+    ]
+  }
+}
