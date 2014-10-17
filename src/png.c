@@ -84,3 +84,34 @@ GBitmap* gbitmap_create_with_png_resource(uint32_t resource_id) {
   return gbitmap_ptr;
 }
 
+//Note: this frees the source data during decoding to save memory usage
+GBitmap* gbitmap_create_with_png_data(uint8_t *data, int data_bytes) {
+  upng_t* upng = NULL;
+
+  //Allocate gbitmap
+  GBitmap* gbitmap_ptr = malloc(sizeof(GBitmap));
+
+  upng = upng_new_from_bytes(data, data_bytes);
+  if (upng == NULL) {
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "UPNG malloc error"); 
+  }
+  if (upng_get_error(upng) != UPNG_EOK) {
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "UPNG Loaded:%d line:%d", 
+      upng_get_error(upng), upng_get_error_line(upng));
+  }
+  if (upng_decode(upng) != UPNG_EOK) {
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "UPNG Decode:%d line:%d", 
+      upng_get_error(upng), upng_get_error_line(upng));
+  }
+
+  gbitmap_from_bitmap(gbitmap_ptr, upng_get_buffer(upng),
+    upng_get_width(upng), upng_get_height(upng));
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "converted to gbitmap");
+
+  // Free the png, no longer needed
+  upng_free(upng);
+  upng = NULL;
+
+  return gbitmap_ptr;
+}
+
