@@ -1,7 +1,8 @@
 pebble-png_demo
 =================
 
-This is a port of uPNG to pebble for support of compressed images.  This will allow up to 4 times as many images stored as resources + transfer faster from the javascript/companion_app due to the smaller compressed size.  Currently Pebble images are a non-standard bitmap format called PBI, as documented here: ![https://developer.getpebble.com/2/api-reference/group___graphics_types.html#struct_g_bitmap](https://developer.getpebble.com/2/api-reference/group___graphics_types.html#struct_g_bitmap)
+This is a port of uPNG to pebble for support of compressed images.  This will allow up to 4 times as many images stored as resources + transfer faster from the javascript/companion_app due to the smaller compressed size.  Currently Pebble images are a non-standard bitmap format called PBI, as documented here: 
+https://developer.getpebble.com/2/api-reference/group___graphics_types.html#struct_g_bitmap
 
 ![golem_original](https://raw.githubusercontent.com/mhungerford/png_demo/master/robot_orig.png)|
 ![golem_dithered](https://github.com/mhungerford/png_demo/raw/master/resources/robot.png)
