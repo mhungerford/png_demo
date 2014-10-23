@@ -27,9 +27,11 @@ static bool gbitmap_from_bitmap(
   gbitmap->row_size_bytes = ((width + 31) / 32 ) * 4;
   //Allocate new gbitmap array
   gbitmap->addr = malloc(height * gbitmap->row_size_bytes); 
+  gbitmap->is_heap_allocated = true;  // allows gbitmap_destroy to cleanup
   if (gbitmap->addr == NULL) {
     APP_LOG(APP_LOG_LEVEL_DEBUG, "malloc gbitmap->addr failed");
   }
+
 
   for(int y = 0; y < height; y++) {
     memcpy(

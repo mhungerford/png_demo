@@ -27,7 +27,7 @@ static void window_load(Window *window) {
 }
 
 static void window_unload(Window *window) {
-  free(gbitmap);
+  gbitmap_destroy(gbitmap);
 }
 
 
